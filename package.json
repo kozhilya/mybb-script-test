@@ -2,9 +2,12 @@
   "name": "mybb-script-test",
   "version": "0.1.0",
   "description": "Тестовый скрипт для нового сервиса",
-  "main": "index.js",
+  "types": "src/types",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,32 @@
   "bugs": {
     "url": "https://github.com/kozhilya/mybb-script-test/issues"
   },
-  "homepage": "https://github.com/kozhilya/mybb-script-test#readme"
+  "homepage": "https://github.com/kozhilya/mybb-script-test#readme",
+  "dependencies": {
+    "@babel/cli": "latest",
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-typescript": "latest",
+    "@types/jquery": "latest",
+    "@webpack-cli/generators": "latest",
+    "babelify": "latest",
+    "grunt": "latest",
+    "grunt-browserify": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-jsdoc-to-markdown": "latest",
+    "html-loader": "latest",
+    "jsdoc-babel": "latest",
+    "jsdoc-to-markdown": "latest",
+    "markdown-it": "latest",
+    "markdown-it-container": "latest",
+    "prettier": "latest",
+    "terser-webpack-plugin": "latest",
+    "ts-loader": "latest",
+    "tsify": "latest",
+    "typescript": "latest",
+    "uglify-js": "latest",
+    "webpack": "latest",
+    "webpack-cli": "latest",
+    "webpack-utf8-bom": "latest"
+  }
 }
