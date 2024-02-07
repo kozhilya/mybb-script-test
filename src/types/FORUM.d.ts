@@ -1,66 +1,85 @@
-declare module "FORUM" {
-    let FORUM: {
-        editor: MybbEditor
-    }
+export type MybbEditor = {
+    settings: MybbEditorSettings;
+    [key: string]: MybbEditorTag | MybbEditorSettings;
+}
 
-    export class MybbEditorTag {
-        /**
-         * @param {string} name Строка, название кнопки.
-         */
-        name: string;
+export class MybbEditorTag {
+    /**
+     * Название кнопки.
+     */
+    name: string;
 
-        /**
-         * @param {function} onclick Функция, которая будет вызвана при нажатии кнопки.
-         */
-        onclick: () => void;
-    }
+    /**
+     * Функция, которая будет вызвана при нажатии кнопки.
+     */
+    onclick: () => void;
+}
 
-    export type MybbEditorSettings = {
-        autofocus: string
-    }
+export type MybbEditorSettings = {
+    autofocus: string
+}
 
-    export type MybbEditor = {
-        settings: MybbEditorSettings;
-        [key: string]: MybbEditorTag | MybbEditorSettings;
-    }
+export class MybbTopic {
+    /**
+     * Тема сообщения
+     */
+    subject: string;
 
-    export function quote(e: string, t: string, i: string): void;
+    /**
+     * Флаг закрытия
+     * @type "0"|"1"
+     */
+    closed: string;
 
-    export function bbcode(tagStart: string, tagEnd: string): void;
+    /**
+     * Количество ответов в теме
+     */
+    num_replies: string;
 
-    export function changeVisibility(areaName: string): void;
+    /**
+     * Количество просмотров темы
+     */
+    num_views: string;
 
-    export function insert(value: string): void;
+    /**
+     * ID форума
+     */
+    forum_id: string;
+    
+    /**
+     * Имя форума
+     */
+    forum_name: string;
+    
+    /**
+     * Список модераторов форума, ключ - ID пользователя, значение - имя модератора
+     */
+    moderators: {
+        [key in string]: string
+    };
+    
+    /**
+     * Объект языков
+     */
+    language: {
+        share_legend: string
+    };
+}
 
-    export function smile(emote: string): void;
+export class MYBB_vsc {
+    cH: any;
+    RG: { [key: string]: MYBB_vsc_item };
+    checkHost: (hostingItem: MYBB_vsc_item, input: string) => boolean;
+    clickHost: (element: HTMLAnchorElement) => void;
+    parse: () => void;
+    isLink: (input: string) => boolean;
+    message: (html: string) => void;
+    reInit: () => void;
+}
 
-    export function tag_table(rows: number, columns: number): void;
-
-    export function MYBB_vsi(element: HTMLElement, event: any): void;
-
-    export function insertUploadedImage(element: HTMLElement | JQuery): void;
-
-    export function tag_spoiler(spoilerType: string): void;
-
-    export function keyboard(character: string): void;
-
-    export function to(target: string): void;
-
-    export class MYBB_vsc {
-        cH: any;
-        RG: { [key: string]: MYBB_vsc_item };
-        checkHost: (hostingItem: MYBB_vsc_item, input: string) => boolean;
-        clickHost: (element: HTMLAnchorElement) => void;
-        parse: () => void;
-        isLink: (input: string) => boolean;
-        message: (html: string) => void;
-        reInit: () => void;
-    }
-
-    type MYBB_vsc_item = {
-        l: "0" | "1";
-        t: string;
-        x: RegExp;
-        nf: string;
-    }
+type MYBB_vsc_item = {
+    l: "0" | "1";
+    t: string;
+    x: RegExp;
+    nf: string;
 }

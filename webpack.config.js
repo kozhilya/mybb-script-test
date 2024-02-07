@@ -10,7 +10,6 @@ const config = {
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: () => PACKAGE.name + (isProduction ? ".min" : "") + ".js",
-        clean: true,
     },
     plugins: [
         // new BomPlugin(true),
