@@ -1,0 +1,19 @@
+{
+  "name": "mybb-script-test",
+  "version": "0.1.0",
+  "description": "Тестовый скрипт для нового сервиса",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kozhilya/mybb-script-test.git"
+  },
+  "author": "kozhilya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kozhilya/mybb-script-test/issues"
+  },
+  "homepage": "https://github.com/kozhilya/mybb-script-test#readme"
+}
