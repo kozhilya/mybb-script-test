@@ -1,0 +1,7 @@
+{
+    "name": "script",
+    "version": "0.0.1",
+    "main": "dist/script.min.js",
+    "description": "Скрипт",
+    "author": "kozhilya"
+}
